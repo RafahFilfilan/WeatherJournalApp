@@ -32,7 +32,6 @@ function listening(){
 	console.log(`running of localhost: ${port}`);
 };
 
-
 // Initialize all route with a callback function
 
 // Callback function to complete GET '/all'
@@ -48,13 +47,10 @@ app.post('/addWeather', addWeather);
 
 function addWeather(req, res){
 	//console.log(req.body)
-	let newEntry = {
-		date: req.body.date,
-		zip: req.body.zip,
-		temp: req.body.temp,
-		content: req.body.content
-	}
+	projectData.date = req.body.date;
+	projectData.zip = req.body.zip;
+	projectData.temp = req.body.temp;
+	projectData.content = req.body.content;
 	
-	projectData.push(newEntry);
 	res.send(projectData);
 }
