@@ -35,12 +35,11 @@ function listening(){
 
 // Initialize all route with a callback function
 
-
 // Callback function to complete GET '/all'
 app.get('/', getData);
 
 function getData(req, res){
-	res.send(projectData)
+	res.send(projectData);
 	//console.log(projectData);
 };
 
@@ -56,7 +55,6 @@ function addWeather(req, res){
 		content: req.body.content
 	}
 	
-	projectData.push(newEntry)
-	res.send(projectData)
-	console.log(projectData)
+	projectData.push(newEntry);
+	res.send(projectData);
 }
