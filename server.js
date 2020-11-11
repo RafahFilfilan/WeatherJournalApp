@@ -35,7 +35,7 @@ function listening(){
 // Initialize all route with a callback function
 
 // Callback function to complete GET '/all'
-app.get('/', getData);
+app.get('/all', getData);
 
 function getData(req, res){
 	res.send(projectData);
