@@ -15,10 +15,10 @@ let feelingsValue = document.querySelector('#feelings');
 
 const generateBtn = document.getElementById('generate');
 
-const dateField = document.getElementById('date');
-const zipcodeField = document.getElementById('zipcode');
-const tempField = document.getElementById('temp');
-const contentField = document.getElementById('content');
+const dateField = document.getElementById('dateField');
+const zipcodeField = document.getElementById('zipcodeField');
+const tempField = document.getElementById('tempField');
+const contentField = document.getElementById('contentField');
 
 let projectDataAll = {};
 
@@ -78,14 +78,15 @@ const postData = async (url='', data = {})=>{
 
 /* Function to GET Project Data */
 const updateUI = async () => {
-	const request = await fetch('/');
+	const req = await fetch('http://localhost:8000/all');
 	try{
-		const allData = await request.json();
-
-			dateField.innerHTML = allData.date;
-			zipcodeField.innerHTML = allData.zip;
-			tempField.innerHTML = allData.temp;
-			contentField.innerHTML = allData.content;
+		const allData = await req.json()
+		console.log(allData)
+		
+		document.getElementById('dateField').innerHTML = allData.date;
+		document.getElementById('zipcodeField').innerHTML = allData.zip;
+		document.getElementById('tempField').innerHTML = allData.temp;
+		document.getElementById('contentField').innerHTML = allData.content;
 		
 			//allData.forEach(sdata => {})
 	}catch(error){
