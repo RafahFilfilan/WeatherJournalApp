@@ -7,8 +7,8 @@ let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
   
 // Personal API Key for OpenWeatherMap API
-let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-let apiKey = '&appid=34c02ec7676e43263f3071d768b2e62d';
+const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+const apiKey = '&appid=34c02ec7676e43263f3071d768b2e62d&units=imperial"';
 
 let zipValue = document.querySelector('#zip');
 let feelingsValue = document.querySelector('#feelings');
@@ -28,6 +28,7 @@ generateBtn.addEventListener("click", performAction);
 /* Function called by event listener */
 function performAction(e){
 	e.preventDefault();
+
 	getWeather(baseURL, zipValue, apiKey)
 	
 	.then(function (data){
